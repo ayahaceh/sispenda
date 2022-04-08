@@ -1,0 +1,176 @@
+Yang Belum :
+1.  Atur Pembatasan Route agar ga semua user bs akses semua route;
+    Khususnya user eksternal
+2.  Buat kotak pencarian pelunasan BPHTB untuk Perizinan.
+3.  Ujicoba sebagai PPAT 
+4.  Ujicoba sebagai WP
+5.  Ujicoba BPN/Publik
+6.  Ujicoba sebagai Kabid (konfirmasi)
+
+7.  Upload Regulasi BPHTB terbaru 
+8.  Upload QR Code Rekening 
+9.  Profil Pejabat masih pejabat lama 
+10. Perbaiki Hubungi Kami. 
+
+1.  Notif konfirmasi saat Export (pakai SWAL) belum ada.
+2.  Input NIK dan NOP sebaiknya pakai Masking bootstrap (input mask).
+    https://adminlte.io/themes/v3/pages/forms/advanced.html
+
+3.  Input NOP harus ada Validasi Jumlah Karakter NOP nya. (Masking)
+    Agar tidak error saat cetak PDF
+
+4.  Login Kabid 
+5.  Login PPAT, Export masih salah.
+6.  DONE : Logs --> BELUM UJI COBA SEMUA METHOD
+7.  Tanggal Backup belum muncul.
+    Pada saat backup, disimpan kedalam tabel aja tanggal dilakukan backup tersebut.
+8.  Logs masih error saat hapus semua transaksi.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+A.  lOGIN WP
+    # 1 NOP 
+    a-   Daftar NOP yang diajukan oleh WP 
+        agar WP tau status setiap NOP nya. 
+        tampilkan tabel daftar nop_pbb_temp 
+        terus dibawahnya tabel dari nop_pbb 
+        kemudian tampilkan statusnya (Belum Verifikasi atau Valid)
+        isi tabelnya 2x foreach. setelah selesai foreach tabel nop_pbb_temp,
+        dilanjutkan foreach tabel nop_pbb 
+
+    b-   Setelah NOP verifikasi (Valid), WP tidak dapat lagi memperbaiki (edit)
+        (tombol edit tidak muncul-> pakai if pada blade aja!)  
+        if ($data->status != valid ..TOMBOL EDIT DISINI... endif)  
+
+    c-   WP juga dapat menambah NOP baru. (Melakukan pengajuan NOP baru).
+        Ada tombol tambah pada sudut kanan atas tampilan daftar tersebut.
+
+    # 2 Pengajuan BPHTB (tabel peralihan_nop)
+    a-   Pengajuan BPHTB menampilkan isi tabel peralihan_nop where kepada_nik wp tersebut,
+        agar wp dapat melihat jumlah (kolom jumlah) pajak yang harus disetor serta nomor rekening .
+
+    -   Setelah disetor, WP dapat mengupload dokumen/bukti pembayaran.
+        Ada field untuk upload bukti pembayaran oleh WP.
+        (berkas_bukti_pembayaran)
+
+    -   Setelah verifikasi pembayaran dan dinyatakan lunas, (Status Transaksi Lunas)
+        WP dapat mendownload formulir BPHTB online.
+
+
+2.  lOGIN Admin 
+    -   Daftar NOP sort by id DESC pengajuan 
+        agar NOP yang baru diajukan tampil diatas 
+
+    -   Ada tombol PRINT NOP, yang memuat :
+        Data Profil (kolom NIK, Nama, alamat, Desa, Kec) 
+        dan data NOP PBB (kolom NOP, Letak, Desa, Kecamatan, Luas Tanah, Luas Bangunan, jumlah), Jumlah/Total Rupiah 
+        untuk memudahkan admin mengimput ke menu transaksi BPHTB.
+        Desain lembar print terserah, karena hanya untuk memudahkan admin saja
+        agar ga bolak balik melihat ke menu NOP dan Menu Profil saat input peralihan.
+
+    -   Admin melakukan verifikasi Pembayaran.
+        Pembubuhan Barcode pada formulir BPHTB untuk mengecek LUNAS atau Belum.
+        qrcode lebih tepat.
+    -   Admin mengupload BPHTB scan.
+
+3.  Add User untuk akun PPAT dan Akun Publik.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Hubungi Yuyun untuk :
+1.  Apakah NPOPTKP tetap dikenakan jika sebelumnya sudah ada transaksi kecil?
+
+Hubungi Sony untuk :
+1.  Kode Jenis Perolehan Hak atas Tanah / Bangunan
+2.  Transaksi Peralihan
+3.  Tarif BPHTB 
+4.  
+
+TUGAS :
+    1.  Hapus kolom jenis_profil_id pada tabel profil.
+    2.  
+
+
+
+TUGAS :
+1.  Login / Register with google
+2.  Harga dari Sismyob 
+3.  ....
+4.  
+
+WAJIB :
+1.  Buat Log untuk perubahan ke semua tabel tarif 
+2.  Buat Log untuk perubahan ke tabel transaksi inti 
+
+
+
+===========================
+        CATATAN
+===========================
+
+Modul SISMODA
+SISPENDA ( Sistem Informasi dan Manajemen Objek Pajak Daerah), 
+merupakan aplikasi yang memudahkan BPKK dalam melakukan pengelolaan PBB-P2, 
+SISPENDA dikembangkan dengan menggunakan teknologi terkini dan berbasis web, 
+sehingga tidak diperlukan lisensi tambahan jika akan digunakan untuk beberapa 
+perangkat computer yang akan mengakses aplikasi. 
+Aplikasi ini mengakomodir administrasi PBB, mulai dari administrasi kantor, pendaftaran, penilaian, 
+pemberian identitas Nomor Objek Pajak, pemrosesan, pemeliharaan, sampai dengan keluaran cetak yang 
+berupa SPPT, STTS, dan DHKP.
+
+Modul yang tersedia dari SISPENDA ini sebagai berikut:
+1.  Modul File
+2.  Modul Pendataan
+3.  Modul Penilaian
+4.  Modul Penagihan
+5.  Modul Pembayaran
+6.  Modul Pelayanan
+7.  Modul Lihat
+8.  Modul Referensi
+9.  Modul Dashboard
+10. Spesifikasi Aplikasi SISPENDA
+
+Berbasis Web
+    Database menggunakan MySQL
+    Dibangun dengan framework Laravel
+    Desain antar muka user friendly
+    Terintegrasi dengan Bank BSI
+
+Alur Sistem SISPENDA
+1.  Pendaftaran Objek dan Subjek Pajak
+2.  Pendataan Objek dan Subjek Pajak
+3.  Penelitian
+4.  Pemberian Identitas Objek Pajak (NOP)
+5.  Perekaman Data
+6.  Pemeliharaan Basis Data
+7.  Pencetakan Hasil Keluaran
+8.  Pemantauan Penerimaan/Pembayaran
+9.  Pelayanan Satu Tempat.
+

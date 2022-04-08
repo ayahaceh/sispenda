@@ -1,0 +1,15 @@
+BUG YANG DITEMUKAN :
+1.  Tampilan Logs (list) belum Order By Desc.
+
+2.  Rekap Kas, URL : /laporan/bphtb/rekap/kas
+    Hasil Print (html) belum rapi (Ctrl + P)
+
+3.  
+
+
+PENGEMBANGAN :
+1.  (Done) Tampilkan jumlah penerimaan BPHTB tahun berjalan pada dashboard!
+2.  
+
+CRONTJOB BACKUP DATABASE :
+mysqldump -u1424778_user_bphtb -g[+qH_OsXF;$ -h127.0.0.1 u1424778_bphtb | gzip > /home/U1424778/backup_database/backup_$(date +"\%Y.\%m.\%d.\%S.\%N").sql.gz

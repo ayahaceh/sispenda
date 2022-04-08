@@ -1,0 +1,6 @@
+/node_modules
+/public/hot
+/resources/views/disp/disp_e.blade.php
+.env
+docker-compose.override.yml
+Experimental support for decorators is a feature that is subject to change in a future release. Set the 'experimentalDecorators' option in your 'tsconfig' or 'jsconfig' to remove this warning.javascript
